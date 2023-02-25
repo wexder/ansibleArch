@@ -1,6 +1,6 @@
 ---
 - name: Install qemu
-  become_user: aur_builder
+  become_user: wexder
   become: true
   kewlfft.aur.aur:
     name:

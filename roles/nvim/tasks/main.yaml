@@ -1,6 +1,6 @@
 ---
 - name: Install nvim
-  become_user: aur_builder
+  become_user: wexder
   become: yes
   kewlfft.aur.aur:
     name:

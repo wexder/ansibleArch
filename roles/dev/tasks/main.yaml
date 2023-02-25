@@ -1,6 +1,6 @@
 ---
 - name: Install Dev tools
-  become_user: aur_builder
+  become_user: wexder
   become: true
   kewlfft.aur.aur:
     update_cache: true
@@ -21,7 +21,7 @@
     cmd: "~/.cargo/bin/rustup update"
 
 - name: Install Virtualization tools
-  become_user: aur_builder
+  become_user: wexder
   become: true
   kewlfft.aur.aur:
     name:
@@ -44,7 +44,7 @@
     enabled: true
 
 - name: Install lazy tools
-  become_user: aur_builder
+  become_user: wexder
   become: true
   kewlfft.aur.aur:
     name:

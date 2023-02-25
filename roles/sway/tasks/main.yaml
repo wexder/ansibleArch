@@ -1,6 +1,6 @@
 ---
 - name: Install sway tools
-  become_user: aur_builder
+  become_user: wexder
   become: true
   kewlfft.aur.aur:
     name:
@@ -21,7 +21,7 @@
     state: link
 
 - name: Install waybar
-  become_user: aur_builder
+  become_user: wexder
   become: true
   kewlfft.aur.aur:
     name:
