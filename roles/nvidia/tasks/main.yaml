@@ -1,0 +1,25 @@
+---
+- name: Create pacman hooks if it does not exist
+  become: true
+  ansible.builtin.file:
+    path: /etc/pacman.d/hooks
+    state: directory
+
+- name: Add pacman hook
+  become: true
+  copy:
+    src: nvidia.hook
+    dest: /etc/pacman.d/hooks/nvidia.hook
+
+- name: Copy nvidia.conf kernel module param
+  become: true
+  copy:
+    src: nvidia.conf
+    dest: /etc/modprobe.d/nvidia.conf
+
+- name: Install nvidia drivers
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - nvidia

@@ -1,0 +1,51 @@
+---
+- name: Install Dev tools
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - go
+      - node
+      - python38
+      - jq
+
+- name: Setup Rust
+  shell:
+    cmd: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+    creates: "~/.cargo/bin/rustup"
+
+# TODO how to check if changed ?
+- name: Update Rustup
+  shell:
+    cmd: "~/.cargo/bin/rustup update"
+
+- name: Install Virtualization tools
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - docker
+      - kubectl
+      - tilt-bin
+      - kind
+
+- name: Add to docker group
+  become: true
+  user:
+    name: wexder
+    group: docker
+
+- name: Start docker service
+  become: true
+  service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Install lazy tools
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - lazydocker
+      - lazygit

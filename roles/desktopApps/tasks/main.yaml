@@ -1,0 +1,10 @@
+---
+- name: Install essential desktop apps
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - alacritty
+      - firefox
+      - slack
+      - caprine

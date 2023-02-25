@@ -1,0 +1,23 @@
+---
+- name: Base
+  hosts: arch 
+  remote_user: wexder
+  become: yes
+  roles:
+    - role: base
+- name: Yay
+  hosts: arch
+  remote_user: wexder
+  vars_prompt:
+  - name: sudo_pass 
+    prompt: Enter password
+    private: true
+  roles:
+    - role: yay
+      pass: "{{ sudo_pass }}"
+- name: Qemu agent
+  hosts: virtual
+  remote_user: wexder
+  become: yes
+  roles:
+    - role: qemuAgent

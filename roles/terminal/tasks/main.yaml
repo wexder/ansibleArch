@@ -1,0 +1,44 @@
+---
+- name: Install base tools
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - zsh
+      - zsh-completions
+      - tmux
+
+- name: Install my antigen config
+  ansible.builtin.git:
+    repo: "https://github.com/zsh-users/antigen.git"
+    dest: ~/.config/antigen/
+
+- name: Pexpect
+  pip:
+    name: pexpect
+
+- name: Setup Starship
+  expect:
+    command: "/bin/bash -c 'curl -sS https://starship.rs/install.sh | sh'"
+    creates: "/usr/local/bin/starship"
+    responses:
+      Install: "y"
+      "(?i)password": "{{ pass }}"
+
+- name: Install my dotFiles config
+  ansible.builtin.git:
+    repo: "https://github.com/wexder/dotFiles"
+    dest: ~/.config/dotFiles/
+
+- name: Create a symbolic link for zshrc
+  ansible.builtin.file:
+    src: ~/.config/dotFiles/zsh/.zshrc
+    dest: ~/.zshrc
+    owner: wexder
+    state: link
+
+- name: Change wexders default shell to zsh
+  become: true
+  ansible.builtin.user:
+    name: wexder
+    shell: /bin/zsh

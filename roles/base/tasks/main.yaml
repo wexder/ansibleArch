@@ -1,0 +1,17 @@
+---
+- name: Full system upgrade
+  ansible.builtin.pacman:
+    update_cache: yes
+    upgrade: yes
+- name: Install git
+  ansible.builtin.pacman:
+    name: "git"
+    state: present
+- name: Install curl
+  ansible.builtin.pacman:
+    name: "curl"
+    state: present
+- name: Install pip
+  ansible.builtin.pacman:
+    name: "python-pip"
+    state: present

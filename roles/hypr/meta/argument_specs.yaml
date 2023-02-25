@@ -1,0 +1,8 @@
+---
+argument_specs:
+  main:
+    options:
+      nvidia:
+        type: "bool"
+        default: false
+        description: "Install hyprland-nvidia instead of hyprland"

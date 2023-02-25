@@ -1,0 +1,19 @@
+---
+- name: Install nvim
+  become_user: aur_builder
+  become: yes
+  kewlfft.aur.aur:
+    name:
+      - nvim-nightly
+- name: Install packer
+  ansible.builtin.git:
+    repo: "https://github.com/wbthomason/packer.nvim"
+    dest: "~/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    depth: 1
+- name: Install my nvim config
+  ansible.builtin.git:
+    repo: "https://github.com/wexder/nvim.IDE"
+    dest: ~/.config/nvim/
+- name: Sync Packer
+  command:
+    cmd: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"

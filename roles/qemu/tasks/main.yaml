@@ -1,0 +1,13 @@
+---
+- name: Install qemu
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - quickemu
+      - quickgui
+
+- name: Install quickpassthough
+  ansible.builtin.git:
+    repo: "https://github.com/HikariKnight/quickpassthrough.git"
+    dest: ~/util/quickpassthrough/

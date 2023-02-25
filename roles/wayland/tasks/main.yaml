@@ -1,0 +1,12 @@
+---
+- name: Install Wayland tools
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - xorg-xwayland 
+      - xdisplays
+      - wlr-ranrd
+      - mako
+      - kanshi
+

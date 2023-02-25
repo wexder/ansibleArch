@@ -1,0 +1,18 @@
+---
+- name: Install nvidia
+  hosts: nvidia
+  remote_user: wexder
+  roles:
+    - role: nvidia
+- name: Install sway
+  hosts: sway
+  remote_user: wexder
+  roles:
+    - role: sway
+    - role: desktopApps
+- name: Install hyprland
+  hosts: hyprland
+  remote_user: wexder
+  roles:
+    - role: hypr
+      nvidia: true

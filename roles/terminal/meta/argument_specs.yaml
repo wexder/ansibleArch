@@ -1,0 +1,8 @@
+---
+argument_specs:
+  main:
+    options:
+      pass:
+        type: "str"
+        required: true
+        description: "Password used for yay sudo prompt"

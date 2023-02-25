@@ -1,0 +1,40 @@
+---
+- name: Install sway tools
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - sway
+      - polkit
+      - swaylock
+      - swayidle
+
+- name: Install my dotFiles config
+  ansible.builtin.git:
+    repo: "https://github.com/wexder/dotFiles"
+    dest: ~/.config/dotFiles/
+
+- name: Create a symbolic link for sway config
+  ansible.builtin.file:
+    src: ~/.config/dotFiles/sway
+    dest: ~/.config/sway
+    state: link
+
+- name: Install waybar
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - waybar
+
+- name: Install my dotFiles config
+  ansible.builtin.git:
+    repo: "https://github.com/wexder/dotFiles"
+    dest: ~/.config/dotFiles/
+
+- name: Create a symbolic link for waybar config
+  ansible.builtin.file:
+    src: ~/.config/dotFiles/waybar
+    dest: ~/.config/waybar
+    owner: wexder
+    state: link
