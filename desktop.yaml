@@ -16,11 +16,19 @@
     - role: sway
     - role: desktopApps
 - name: Install hyprland
-  hosts: hyprland
+  hosts: hyprland:&nvidia
   remote_user: wexder
   roles:
     - role: hypr
       nvidia: true
+    - role: desktopApps
+- name: Install hyprland
+  hosts: hyprland
+  remote_user: wexder
+  roles:
+    - role: hypr
+      nvidia: false
+    - role: desktopApps
 - name: Install qemu
   hosts: qemu
   remote_user: wexder

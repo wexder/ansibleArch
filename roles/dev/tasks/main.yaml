@@ -3,6 +3,7 @@
   become_user: aur_builder
   become: true
   kewlfft.aur.aur:
+    update_cache: true
     name:
       - go
       - node

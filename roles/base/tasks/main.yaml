@@ -15,3 +15,8 @@
   ansible.builtin.pacman:
     name: "python-pip"
     state: present
+- name: Setup tools
+  ansible.builtin.pacman:
+    name: "python-setuptools"
+    state: present
+

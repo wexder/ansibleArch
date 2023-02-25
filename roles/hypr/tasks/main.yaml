@@ -42,7 +42,7 @@
   become: true
   kewlfft.aur.aur:
     name:
-      - waybar
+      - waybar-hyprland-git
 
 - name: Install my dotFiles config
   ansible.builtin.git:
