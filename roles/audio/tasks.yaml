@@ -13,3 +13,6 @@
     name:
       - pipewire-audio
       - pipewire-alsa
+      - pipewire-pulse
+      - pavucontrol
+      - bluez

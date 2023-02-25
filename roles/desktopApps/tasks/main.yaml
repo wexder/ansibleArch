@@ -9,3 +9,5 @@
       - slack
       - caprine
       - rofi
+      - wofi
+      - blueberry
