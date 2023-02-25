@@ -28,7 +28,7 @@
 
 - name: Install my dotFiles config
   ansible.builtin.git:
-    repo: "https://github.com/wexder/dotFiles"
+    repo: "git@github.com:wexder/dotFiles"
     dest: ~/.config/dotFiles/
 
 - name: Create a symbolic link for sway config
@@ -46,7 +46,7 @@
 
 - name: Install my dotFiles config
   ansible.builtin.git:
-    repo: "https://github.com/wexder/dotFiles"
+    repo: "git@github.com:wexder/dotFiles"
     dest: ~/.config/dotFiles/
 
 - name: Create a symbolic link for waybar config
