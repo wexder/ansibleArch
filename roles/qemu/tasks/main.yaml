@@ -1,11 +1,42 @@
 ---
 - name: Install qemu
-  become_user: wexder
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - qemu-full
+      - libvirt
+      - lxsession-gtk3
+
+- name: Install virt gui utils
+  become_user: aur_builder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - virt-viewer
+      - virt-manager
+
+- name: Start libvirtd service
+  become: true
+  service:
+    name: libvirtd
+    state: started
+    enabled: true
+
+- name: Start virtlogd service
+  become: true
+  service:
+    name: virtlogd
+    state: started
+    enabled: true
+
+- name: Install quickemu
+  become_user: aur_builder
   become: true
   kewlfft.aur.aur:
     name:
       - quickemu
-      - quickgui
+      - quickgui-bin
 
 - name: Install quickpassthough
   ansible.builtin.git:

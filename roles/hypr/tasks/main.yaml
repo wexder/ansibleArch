@@ -25,6 +25,7 @@
       - polkit
       - swaylock
       - swayidle
+      - swww
 
 - name: Install my dotFiles config
   ansible.builtin.git:

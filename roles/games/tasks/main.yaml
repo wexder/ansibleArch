@@ -1,0 +1,15 @@
+---
+- name: Install game tools
+  become_user: wexder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - lib32-nvidia-utils
+- name: Install game tools
+  become_user: wexder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - steam
+      - multimc-bin
+      - polymc-bin

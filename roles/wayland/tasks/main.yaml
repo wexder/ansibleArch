@@ -5,8 +5,31 @@
   kewlfft.aur.aur:
     name:
       - xorg-xwayland 
-      - xdisplays
-      - wlr-ranrd
+      - wdisplays
+      - wlr-randr
       - mako
       - kanshi
+      - wl-clipboard
+      - cliphist
+      - wofi
+      - networkmanager
+      - wofi-wifi-menu-git
+
+- name: Install my dotFiles config
+  ansible.builtin.git:
+    repo: "git@github.com:wexder/dotFiles"
+    dest: ~/.config/dotFiles/
+
+- name: Create a symbolic link for wofi config
+  ansible.builtin.file:
+    src: ~/.config/dotFiles/wofi
+    dest: ~/.config/wofi
+    state: link
+
+- name: Start networkmanager service
+  service:
+    name: NetworkManager
+    state: started
+    enabled: true
+
 

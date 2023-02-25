@@ -7,7 +7,7 @@
       - zsh
       - zsh-completions
       - tmux
-      - ttf-nerd-fonts-symbols-2048-em
+      - nerd-fonts-meta
 
 - name: Install my antigen config
   ansible.builtin.git:

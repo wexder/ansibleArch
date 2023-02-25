@@ -8,6 +8,20 @@
       - firefox
       - slack
       - caprine
-      - rofi
-      - wofi
-      - blueberry
+      - blueberry-wayland
+      - spotify
+      - catppuccin-gtk-theme-mocha
+      - wallutils
+      - swaybg
+
+- name: Install my dotFiles config
+  ansible.builtin.git:
+    repo: "git@github.com:wexder/dotFiles"
+    dest: ~/.config/dotFiles/
+
+- name: Create a symbolic link for zshrc
+  ansible.builtin.file:
+    src: ~/.config/dotFiles/alacritty
+    dest: ~/.config/alacritty
+    owner: wexder
+    state: link

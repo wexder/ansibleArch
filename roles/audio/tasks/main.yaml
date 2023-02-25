@@ -1,0 +1,50 @@
+---
+- name: Install pipewire
+  become_user: wexder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - pipewire
+
+- name: Install pipewire dependencies
+  become_user: wexder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - wireplumber
+      - pipewire-audio
+      - pipewire-alsa
+      - pipewire-pulse
+      - pavucontrol
+      - bluez
+
+- name: Start bluetooth service
+  become: true
+  service:
+    name: bluetooth
+    state: started
+    enabled: true
+
+- name: Start bluetooth mesh service
+  become: true
+  service:
+    name: bluetooth-mesh
+    state: started
+    enabled: true
+
+- name: Start wireplumber service
+  service:
+    name: wireplumber
+    state: started
+    scope: user
+    enabled: true
+
+
+- name: Start pipewire pulse service
+  service:
+    name: pipewire-pulse
+    state: started
+    scope: user
+    enabled: true
+
+
