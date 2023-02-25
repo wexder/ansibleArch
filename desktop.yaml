@@ -1,4 +1,9 @@
 ---
+- name: Install audio
+  hosts: arch
+  remote_user: wexder
+  roles:
+    - role: audio
 - name: Install nvidia
   hosts: nvidia
   remote_user: wexder
@@ -16,3 +21,8 @@
   roles:
     - role: hypr
       nvidia: true
+- name: Install qemu
+  hosts: qemu
+  remote_user: wexder
+  roles:
+    - role: qemu
