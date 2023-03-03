@@ -14,6 +14,9 @@
       - wofi
       - networkmanager
       - wofi-wifi-menu-git
+      - swaylock
+      - swayidle
+      - polkit
 
 - name: Install my dotFiles config
   ansible.builtin.git:
@@ -32,4 +35,8 @@
     state: started
     enabled: true
 
-
+- name: Random wallpaper every 10m
+  ansible.builtin.cron:
+    name: "Random wallpaper"
+    minute: "*/10"
+    job: "setrandom ~/Pictures/wallpapers"

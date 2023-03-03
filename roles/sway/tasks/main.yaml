@@ -5,9 +5,8 @@
   kewlfft.aur.aur:
     name:
       - sway
-      - polkit
-      - swaylock
-      - swayidle
+      - xdg-desktop-portal
+      - xdg-desktop-portal-wlr
 
 - name: Install my dotFiles config
   ansible.builtin.git:

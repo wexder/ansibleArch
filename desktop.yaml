@@ -23,14 +23,14 @@
       nvidia: true
     - role: desktopApps
 - name: Install hyprland
-  hosts: hyprland
+  hosts: hyprland:!nvidia
   remote_user: wexder
   roles:
     - role: hypr
       nvidia: false
     - role: desktopApps
 - name: Install wayland
-  hosts: wayland:sway
+  hosts: hyprland:sway
   remote_user: wexder
   roles:
     - role: wayland

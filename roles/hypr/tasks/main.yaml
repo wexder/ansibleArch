@@ -4,7 +4,7 @@
   become: true
   kewlfft.aur.aur:
     name:
-      - hyprland-nvidia
+      - hyprland-git
   when: not nvidia
 
 - name: Install Hyprland nvidia
@@ -12,7 +12,7 @@
   become: true
   kewlfft.aur.aur:
     name:
-      - hyprland-nvidia
+      - hyprland-nvidia-git
   when: nvidia
 
 - name: Install Hyprland tools
@@ -20,12 +20,8 @@
   become: true
   kewlfft.aur.aur:
     name:
-      - hyprland-nvidia
+      - xdg-desktop-portal
       - xdg-desktop-portal-hyprland-git
-      - polkit
-      - swaylock
-      - swayidle
-      - swww
 
 - name: Install my dotFiles config
   ansible.builtin.git:

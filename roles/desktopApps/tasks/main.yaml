@@ -6,13 +6,15 @@
     name:
       - alacritty
       - firefox
-      - slack
+      - slack-desktop-wayland
       - caprine
       - blueberry-wayland
       - spotify
       - catppuccin-gtk-theme-mocha
       - wallutils
       - swaybg
+      - synergy-git
+      - postman-bin
 
 - name: Install my dotFiles config
   ansible.builtin.git:
