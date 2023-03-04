@@ -9,6 +9,9 @@
       - node
       - python38
       - jq
+      - ripgrep
+      - libfido2
+      - mandoc
 
 - name: Setup Rust
   shell:

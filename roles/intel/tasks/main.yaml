@@ -1,0 +1,8 @@
+---
+- name: Install nvidia drivers
+  become_user: wexder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - mesa
+      - intel-media-driver

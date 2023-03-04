@@ -19,4 +19,8 @@
   ansible.builtin.pacman:
     name: "python-setuptools"
     state: present
+- name: Setup ansible
+  ansible.builtin.pacman:
+    name: "ansible"
+    state: present
 

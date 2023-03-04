@@ -15,6 +15,10 @@
       - swaybg
       - synergy-git
       - postman-bin
+      - thunar
+      - dbeaver
+      - wayvnc
+      - yubioath-desktop
 
 - name: Install my dotFiles config
   ansible.builtin.git:
@@ -27,3 +31,24 @@
     dest: ~/.config/alacritty
     owner: wexder
     state: link
+
+- name: Create a symbolic link for gtk3
+  ansible.builtin.file:
+    src: ~/.config/dotFiles/gtk-3.0
+    dest: ~/.config/gtk-3.0
+    owner: wexder
+    state: link
+
+- name: Create a symbolic link for gtk4
+  ansible.builtin.file:
+    src: ~/.config/dotFiles/gtk-4.0
+    dest: ~/.config/gtk-4.0
+    owner: wexder
+    state: link
+
+- name: Start pcscd service
+  become: true
+  service:
+    name: pcscd
+    state: started
+    enabled: true

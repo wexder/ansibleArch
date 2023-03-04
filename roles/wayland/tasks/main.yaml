@@ -17,6 +17,10 @@
       - swaylock
       - swayidle
       - polkit
+      - cronie
+      - grim
+      - swappy
+      - slurp
 
 - name: Install my dotFiles config
   ansible.builtin.git:
@@ -29,11 +33,28 @@
     dest: ~/.config/wofi
     state: link
 
-- name: Start networkmanager service
-  service:
-    name: NetworkManager
-    state: started
-    enabled: true
+- name: Create a symbolic link for mako config
+  ansible.builtin.file:
+    src: ~/.config/dotFiles/mako
+    dest: ~/.config/mako
+    state: link
+
+# - name: Start networkmanager service
+#   service:
+#     name: NetworkManager
+#     state: started
+#     enabled: true
+#
+- name: Create Pictures if not exists
+  ansible.builtin.file:
+    path: ~/Pictures
+    state: directory
+
+- name: Create a symbolic link for wallpapers config
+  ansible.builtin.file:
+    src: ~/.config/dotFiles/wallpapers
+    dest: ~/Pictures/wallpapers
+    state: link
 
 - name: Random wallpaper every 10m
   ansible.builtin.cron:

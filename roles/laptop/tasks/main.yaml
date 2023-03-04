@@ -1,0 +1,6 @@
+- name: Install laptops tools
+  become_user: wexder
+  become: true
+  kewlfft.aur.aur:
+    name:
+      - sof-firmware

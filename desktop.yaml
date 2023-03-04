@@ -4,11 +4,21 @@
   remote_user: wexder
   roles:
     - role: audio
+- name: Install laptop
+  hosts: laptop
+  remote_user: wexder
+  roles:
+    - role: laptop
 - name: Install nvidia
   hosts: nvidia
   remote_user: wexder
   roles:
     - role: nvidia
+- name: Install intel
+  hosts: intel
+  remote_user: wexder
+  roles:
+    - role: intel
 - name: Install sway
   hosts: sway
   remote_user: wexder
@@ -22,6 +32,16 @@
     - role: hypr
       nvidia: true
     - role: desktopApps
+- name: Install laptop
+  hosts: hyprland:&laptop
+  remote_user: wexder
+  roles:
+    - role: laptopDesktop
+- name: Install laptop
+  hosts: sway:&laptop
+  remote_user: wexder
+  roles:
+    - role: laptopDesktop
 - name: Install hyprland
   hosts: hyprland:!nvidia
   remote_user: wexder

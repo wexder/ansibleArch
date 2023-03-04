@@ -8,6 +8,18 @@
       - xdg-desktop-portal
       - xdg-desktop-portal-wlr
 
+- name: Install remove gnome portal if present 
+  become: true
+  ansible.builtin.pacman:
+    name: "xdg-desktop-portal-gnome"
+    state: absent
+
+- name: Install remove gtk portal if present 
+  become: true
+  ansible.builtin.pacman:
+    name: "xdg-desktop-portal-gtk"
+    state: absent
+
 - name: Install my dotFiles config
   ansible.builtin.git:
     repo: "git@github.com:wexder/dotFiles"
