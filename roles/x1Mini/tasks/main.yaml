@@ -1,0 +1,12 @@
+---
+- name: Install my dotFiles config
+  ansible.builtin.git:
+    repo: "git@github.com:wexder/dotFiles"
+    dest: ~/.config/dotFiles/
+
+- name: Create a symbolic link for kanshi config
+  ansible.builtin.file:
+    src: ~/.config/dotFiles/x1Mini/kanshi
+    dest: ~/.config/kanshi
+    owner: wexder
+    state: link

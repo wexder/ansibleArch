@@ -19,6 +19,7 @@
       - dbeaver
       - wayvnc
       - yubioath-desktop
+      - resp-app
 
 - name: Install my dotFiles config
   ansible.builtin.git:

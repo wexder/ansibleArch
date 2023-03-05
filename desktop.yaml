@@ -59,3 +59,8 @@
   remote_user: wexder
   roles:
     - role: qemu
+- name: Install x1 mini laptop
+  hosts: x1Mini
+  remote_user: wexder
+  roles:
+    - role: x1Mini
