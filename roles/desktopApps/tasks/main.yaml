@@ -20,6 +20,7 @@
       - wayvnc
       - yubioath-desktop
       - resp-app
+      - bitwarden-desktop
 
 - name: Install my dotFiles config
   ansible.builtin.git:
