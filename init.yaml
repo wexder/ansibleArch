@@ -21,3 +21,9 @@
   become: yes
   roles:
     - role: qemuAgent
+- name: Grub
+  hosts: arch
+  remote_user: wexder
+  become: yes
+  roles:
+    - role: grub
